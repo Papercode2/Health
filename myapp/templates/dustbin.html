@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin: 100px auto;
+            padding: 20px;
+            max-width: 500px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body bgcolor="powderblue">
+    <div class="container">
+    <h1><b>Dashboard</b></marquee></h1>
+</div>
+<div>
+      
+
+    <div class="button">
+    <button><a href="{% url 'appointment' %}">Book an appointment</a></button>
+    <button><a href="{% url 'approval' %}">Appointment Approval Results</a></button>
+    <button><a href="{% url 'contact' %}">Contact us</a> </a></button>
+    <button><li><a href="{% url 'about' %}">About us</a> </a></li></button>
+    <button><a href="{% url 'logout' %}">Logout</a> </a></button>
+
+    </div>
+    
+    <section class="upcoming-appointments">
+
+        <h2>Upcoming Appointments</h2>
+        <div class="appointment">
+            <p>Date and Time: November 1, 2023 - 10:00 AM</p>
+            <p>Location: Opposite Kemri</p>
+            <p>Doctor/Service: Dr. Ni Wewe.</p>
+            <p>Status: Confirmed</p>
+            <button>Reschedule</button>
+            <button>Cancel</button>
+        </div>
+        <!-- More upcoming appointments go here -->
+        <button><a href ="{% url 'appointment' %}">Add New Appointment</a></button>
+    </section>
+
+    <section class="appointment-history">
+        <h2>Appointment History</h2>
+        <div class="appointment">
+            <p>Date and Time: October 15, 2023 - 3:30 PM</p>
+            <p>Location: Clinic ABC</p>
+            <p>Doctor/Service: Dr. Johnson</p>
+            <p>Status: Completed</p>
+            <button>View Details</button>
+            <button><a href ="{% url 'appointment' %}">Rebook</a></button>
+            <button><a href ="{% url 'index' %}">Logout</a></button>
+        </div>
+        <!-- More appointment history goes here -->
+    
+    </section>
+
+    
+
+</body>
+</html>
+
+</body>
+</html>

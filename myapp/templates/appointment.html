@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+</head>
+<body class="bg-info text-white">
+
+    <div class="container mt-5">
+        <header>
+            <h1>Book an Appointment</h1>
+        </header>
+    </div>
+
+    <div class="container">
+        <main>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <section>
+                    <h2>Patient Information</h2>
+                    <div class="form-group">
+                        <label for="full_name">Full Name:</label>
+                        <input type="text" class="form-control" id="full_name" name="full_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Appointment Details</h2>
+                    <div class="form-group">
+                        <label for="department">Select Department:</label>
+                        <select class="form-control" id="department" name="department" required>
+                            <option value="general_medicine">General Medicine</option>
+                            <option value="surgery">Surgery</option>
+                            <option value="obstetrics_gynecology">Obstetrics & Gynecology</option>
+                            <option value="optics_and_dental">Optics and Dental</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment_date">Preferred Appointment Date:</label>
+                        <input type="date" class="form-control" id="appointment_date" name="appointment_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment_time">Preferred Appointment Time:</label>
+                        <input type="time" class="form-control" id="appointment_time" name="appointment_time" required>
+                    </div>
+                </section>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Submit Appointment Request</button>
+                </div>
+                {% for message in messages %}
+                    <p id="messages">{{message}}</p>
+                {% endfor %}
+            </form>
+        </main>
+    </div>
+
+    <div class="container mt-4">
+        <footer>
+            <p>&copy; 2023 Kericho County Referral Hospital</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

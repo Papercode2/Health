@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+    <title>Doctors List</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Today's Date: 2023-11-28</h2>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Doctor Name</th>
+            <th>Email</th>
+            <th>Specialties</th>
+            <th>Events</th>
+            <th>View Sessions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Papercode</td>
+            <td>papercode2@gmail.com</td>
+            <td>Accident and Emergency</td>
+            <td></td>
+            <td><a href="{% url 'sessions' %}">View</a></td>
+        </tr>
+        <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #777;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        a {
+            color: #007BFF;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Settings</h2>
+</header>
+
+<main>
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+
+        <h3>Profile Information</h3>
+        <!-- profiles/templates/profiles/settings.html -->
+<h2>Edit Profile</h2>
+<form method="post" action="{% url 'save_profile' %}">
+    {% csrf_token %}
+    
+    <label for="bio">Bio:</label>
+    <textarea name="bio" id="bio">{{ user_profile.bio }}</textarea>
+    <br>
+    
+    <label for="avatar">Avatar URL:</label>
+    <input type="text" name="avatar" id="avatar" value="{{ user_profile.avatar }}">
+    <br>
+    
+    <!-- Add more fields for editing other profile details -->
+
+    <input type="submit" value="Save">
+</form>
+
+    {% else %}
+        <p>You are not logged in. Please <a href="{% url 'login' %}">log in</a>.</p>
+    {% endif %}
+</main>
+
+<footer>
+    &copy; 2023 khreap
+</footer>
+
+</body>
+</html>

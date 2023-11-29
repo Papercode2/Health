@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approval</title>
+
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: powderblue; /* Set your desired background color */
+            color: #ffffff; /* Set your desired text color */
+            font-family: Arial, sans-serif; /* Set your desired font family */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px; /* Set your desired maximum width for the content */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .btn-mother {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: #2ecc71; /* Set your desired background color for the mother button */
+            color: #ffffff; /* Set your desired text color for the mother button */
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .btn-mother:hover {
+            background-color: #27ae60; /* Set your desired background color for the mother button on hover */
+        }
+
+        .white-container {
+            background-color: #ffffff; /* Set your desired background color for the white containers */
+            color: #000000; /* Set your desired font color for the text inside the white containers */
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            /* Add more styling as needed for your buttons */
+        }
+
+        p {
+            text-align: center;
+            /* Add more styling as needed for your paragraphs */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation button that toggles the visibility of "Pay Here" and "Logout" buttons -->
+        <button class="btn-mother" type="button" data-toggle="collapse" data-target="#navigationButtons" aria-expanded="false" aria-controls="navigationButtons">
+            MENU
+        </button>
+
+        <!-- Collapsible container for "Pay Here" and "Logout" buttons -->
+        <div class="collapse" id="navigationButtons">
+            <!-- "Pay Here" and "Logout" buttons -->
+            <div class="container">
+                <a class="btn btn-primary" href="{% url 'pay' %}">Pay Here</a>
+                <a class="btn btn-secondary" href="{% url 'login' %}">Logout</a>
+            </div>
+        </div>
+
+        <!-- White container with information -->
+        <div class="white-container">
+            <p>Dear Patient,
+
+                I hope this message finds you well. I wanted to inform you that you should visit the hospital lab for a blood test, diagnostic imaging on 20/12/2023. </p> 
+                <p>You should have your receipt for the payment as evidence of the transaction.
+                
+                Receipt Details:
+                
+                Transaction Date: [Date]
+                Amount: [Amount]
+                Transaction ID: [ID]
+                Ensured that all necessary payments have been made, and bring the printed copy of the receipt with you. If there are any additional documents or information required, please let me know in advance so that I can prepare accordingly.
+                </p>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

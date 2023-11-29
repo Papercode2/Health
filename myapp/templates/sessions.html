@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .alert-container {
+            background-color: powderblue;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+    <title>Doctor Sessions</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>You want to view all sessions for</h2>
+    <h3>(Papercode)</h3>
+    
+    <!-- Session Form -->
+    <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">Session Information</h4>
+        
+        <form>
+            <div class="form-group">
+                <label for="sessionDate">Date:</label>
+                <input type="text" class="form-control" id="sessionDate" placeholder="Enter date">
+            </div>
+            <div class="form-group">
+                <label for="sessionTime">Time:</label>
+                <input type="text" class="form-control" id="sessionTime" placeholder="Enter time">
+            </div>
+            <div class="form-group">
+                <label for="sessionLocation">Location:</label>
+                <input type="text" class="form-control" id="sessionLocation" placeholder="Enter location">
+            </div>
+            
+            <hr>
+            
+            <div class="form-group">
+                <label for="additionalDetails">Additional Details:</label>
+                <textarea class="form-control" id="additionalDetails" rows="3" placeholder="Enter additional details"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Save Session</button>
+        </form>
+    </div>
+
+    <!-- Placeholder for Saved Session Information -->
+    <div class="alert alert-success mt-4" role="alert">
+        <h4 class="alert-heading">Saved Session Information</h4>
+        <p>Date: <span id="savedSessionDate"></span></p>
+        <p>Time: <span id="savedSessionTime"></span></p>
+        <p>Location: <span id="savedSessionLocation"></span></p>
+        <p>Additional Details: <span id="savedAdditionalDetails"></span></p>
+    </div>
+
+    <!-- Example back link to the doctors list -->
+    <a href="{% url 'doctors' %}" class="non-style-link-menu">
+        <div><p class="menu-text">Back To Doctors</p></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        showAlert();
+    });
+
+    function showAlert() {
+        var alertContainer = document.createElement('div');
+        alertContainer.className = 'alert-container';
+        var alertMessage = document.createTextNode('book a session with this doctors');
+
+        alertContainer.appendChild(alertMessage);
+        document.body.appendChild(alertContainer);
+    }
+
+    // JavaScript code to handle form submission and display saved session information
+    document.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Get form values
+        var sessionDate = document.getElementById('sessionDate').value;
+        var sessionTime = document.getElementById('sessionTime').value;
+        var sessionLocation = document.getElementById('sessionLocation').value;
+        var additionalDetails = document.getElementById('additionalDetails').value;
+
+        // Display saved session information
+        document.getElementById('savedSessionDate').innerText = sessionDate;
+        document.getElementById('savedSessionTime').innerText = sessionTime;
+        document.getElementById('savedSessionLocation').innerText = sessionLocation;
+        document.getElementById('savedAdditionalDetails').innerText = additionalDetails;
+    });
+</script>
+
+</body>
+</html>
